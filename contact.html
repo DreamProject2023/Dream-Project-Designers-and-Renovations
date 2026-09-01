@@ -246,24 +246,29 @@
       
       <!-- Form -->
       <div class="md:order-2 animate-on-scroll">
-        <form id="contactForm" class="space-y-4">
-          <input type="text" id="name" placeholder="Full Name *" required
+        <form id="contactForm" class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="c817fdae-d542-47c8-86b4-f062bf99cd6e">
+          <input type="hidden" name="subject" value="New Project Inquiry — Dreamproject">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+          <input type="text" name="name" id="name" placeholder="Full Name *" required
                  class="dark-input w-full px-5 py-4 text-sm">
 
-          <input type="tel" id="phone" placeholder="Phone Number *" required
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number *" required
                  class="dark-input w-full px-5 py-4 text-sm">
 
-          <input type="email" id="email" placeholder="Email Address *" required
+          <input type="email" name="email" id="email" placeholder="Email Address *" required
                  class="dark-input w-full px-5 py-4 text-sm">
 
-          <textarea id="message" rows="6" placeholder="Project details (type of work, approximate area, timeline, budget range) *" required
+          <textarea name="message" id="message" rows="6" placeholder="Project details (type of work, approximate area, timeline, budget range) *" required
                     class="dark-input w-full px-5 py-4 text-sm resize-y"></textarea>
 
-          <button type="submit"
+          <button type="submit" id="submitBtn"
                   class="w-full btn-primary py-4 text-sm tracking-wide flex items-center justify-center gap-3">
-            Send Message
-            <i class="fa-solid fa-arrow-right text-xs"></i>
+            <span id="submitText">Send Message</span>
+            <i class="fa-solid fa-arrow-right text-xs" id="submitIcon"></i>
           </button>
+          <p id="formResult" class="text-sm text-center mt-3 hidden"></p>
         </form>
       </div>
 
