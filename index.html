@@ -1159,39 +1159,43 @@
 
 
 <!-- CONTACT SECTION -->
-<section id="contact" class="py-20 lg:py-28 bg-[#0a0a0a]">
-  <div class="animate-on-scroll">
+<section id="contact" class="py-16 lg:py-24 bg-[#0a0a0a]">
   <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="max-w-3xl mb-12 lg:mb-16">
-      <div class="flex items-center gap-3 mb-5">
-        <div class="gold-line"></div>
-        <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">Contact</span>
-      </div>
-      <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">Get In Touch</h2>
-      <p class="mt-4 text-white/80">Ready to start your renovation or new build? Tell us about the project.</p>
-    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20">
       
       <!-- Form -->
-      <div class="md:order-2">
-        <form id="contactForm" class="space-y-4">
-          <input type="text" id="name" placeholder="Full Name *" required class="dark-input w-full px-5 py-4 text-sm">
-          <input type="tel" id="phone" placeholder="Phone Number *" required class="dark-input w-full px-5 py-4 text-sm">
-          <input type="email" id="email" placeholder="Email Address *" required class="dark-input w-full px-5 py-4 text-sm">
-          <textarea id="message" rows="5" placeholder="Project details (type of work, approximate area, timeline, budget range) *" required class="dark-input w-full px-5 py-4 text-sm resize-y"></textarea>
-          <button type="submit" class="w-full btn-primary py-4 text-sm tracking-wide flex items-center justify-center gap-3">
-            Send Message
-            <i class="fa-solid fa-arrow-right text-xs"></i>
+      <div class="md:order-2 animate-on-scroll">
+        <form id="contactForm" class="space-y-4" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="c817fdae-d542-47c8-86b4-f062bf99cd6e">
+          <input type="hidden" name="subject" value="New Project Inquiry — Dreamproject">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+          <input type="text" name="name" id="name" placeholder="Full Name *" required
+                 class="dark-input w-full px-5 py-4 text-sm">
+
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number *" required
+                 class="dark-input w-full px-5 py-4 text-sm">
+
+          <input type="email" name="email" id="email" placeholder="Email Address *" required
+                 class="dark-input w-full px-5 py-4 text-sm">
+
+          <textarea name="message" id="message" rows="6" placeholder="Project details (type of work, approximate area, timeline, budget range) *" required
+                    class="dark-input w-full px-5 py-4 text-sm resize-y"></textarea>
+
+          <button type="submit" id="submitBtn"
+                  class="w-full btn-primary py-4 text-sm tracking-wide flex items-center justify-center gap-3">
+            <span id="submitText">Send Message</span>
+            <i class="fa-solid fa-arrow-right text-xs" id="submitIcon"></i>
           </button>
+          <p id="formResult" class="text-sm text-center mt-3 hidden"></p>
         </form>
       </div>
 
       <!-- Contact Info -->
-      <div class="space-y-10 pt-12 md:pt-1">
+      <div class="space-y-10 pt-12 md:pt-2">
         
-        <div class="flex gap-x-5 items-start">
+        <div class="flex gap-x-5 items-start animate-on-scroll">
           <div class="w-10 h-10 border border-white/20 flex items-center justify-center text-white shrink-0">
             <i class="fa-solid fa-location-dot text-sm"></i>
           </div>
@@ -1204,44 +1208,49 @@
           </div>
         </div>
 
-        <div class="flex gap-x-5 items-start">
+        <div class="flex gap-x-5 items-start animate-on-scroll">
           <div class="w-10 h-10 border border-white/20 flex items-center justify-center text-white shrink-0">
             <i class="fa-solid fa-phone text-sm"></i>
           </div>
           <div>
             <h4 class="font-semibold text-white tracking-wide">Call Us</h4>
-            <button onclick="handlePhoneCTA('+16047509037')" class="mt-2 block text-lg font-medium text-white hover:text-[#c9a227] transition text-left tracking-wide">
+            <button
+              onclick="handlePhoneCTA('+16047509037')"
+              class="mt-2 block text-lg font-medium text-white hover:text-[#c9a227] transition text-left tracking-wide">
               604 750 9037
             </button>
-            <p class="text-sm text-white/70 mt-1.5 tracking-wide">Monday to Friday | 9:00 AM – 6:00 PM</p>
+            <p class="text-sm text-white/70 mt-1.5 tracking-wide">
+              Monday to Friday | 9:00 AM – 6:00 PM
+            </p>
           </div>
         </div>
 
-        <div class="flex gap-x-5 items-start">
+        <div class="flex gap-x-5 items-start animate-on-scroll">
           <div class="w-10 h-10 border border-white/20 flex items-center justify-center text-white shrink-0">
             <i class="fa-solid fa-envelope text-sm"></i>
           </div>
           <div>
             <h4 class="font-semibold text-white tracking-wide">Email</h4>
-            <a href="mailto:MohitDreamproject28@gmail.com" class="mt-2 block text-white hover:text-[#c9a227] transition text-sm tracking-wide">
+            <a href="mailto:MohitDreamproject28@gmail.com" class="mt-2 block text-white/80 hover:text-[#c9a227] transition text-sm tracking-wide">
               MohitDreamproject28@gmail.com
             </a>
           </div>
         </div>
 
-        <div class="flex gap-x-5 items-start">
+        <div class="flex gap-x-5 items-start animate-on-scroll">
           <div class="w-10 h-10 border border-white/20 flex items-center justify-center text-white shrink-0">
             <i class="fa-solid fa-map-location-dot text-sm"></i>
           </div>
           <div>
             <h4 class="font-semibold text-white tracking-wide">Service Area</h4>
-            <p class="mt-2 text-white/80 text-sm leading-relaxed">All over Mainland & Vancouver Island</p>
+            <p class="mt-2 text-white/80 text-sm leading-relaxed">
+              All over Mainland & Vancouver Island
+            </p>
           </div>
         </div>
 
       </div>
     </div>
-  </div>
   </div>
 </section>
 
