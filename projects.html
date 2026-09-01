@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Dreamproject Designs & Developers Ltd | Vancouver BC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --black: #050505;
+            --zinc: #0a0a0a;
+            --gold: #c9a227;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #050505;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e5e5e5;
+            color: #050505;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.45);
+            color: #ffffff;
+            background: transparent;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.75);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: #c9a227;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .hamburger span {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link.active,
+        .nav-link[href="projects.html"].active {
+            color: #c9a227 !important;
+            font-weight: 500;
+        }
+
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: #c9a227;
+        }
+
+        .gold-line {
+            width: 48px;
+            height: 1px;
+            background: linear-gradient(90deg, #c9a227, transparent);
+        }
+    </style>
+
+<div id="copy-toast"
+     class="fixed bottom-5 right-5 translate-y-[0%] opacity-0 z-[9999] transition-all duration-300 max-w-xs w-[90%] sm:w-full bg-zinc-900 border border-white/15 shadow-2xl">
+    <div class="flex items-center p-4 gap-x-3">
+        <div class="w-9 h-9 bg-white/10 flex items-center justify-center text-[#c9a227] shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <p class="text-sm font-medium text-white flex-1">Phone number copied to clipboard!</p>
+        <button onclick="hideToast()" class="text-white/60 hover:text-white transition shrink-0">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>
+
+</head>
+<body class="tail-container bg-[#050505] text-white antialiased">
+
+<!-- NAVBAR -->
+<nav class="bg-[#050505]/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+<div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+            
+<div class="flex items-center gap-x-2 sm:gap-x-3 shrink-0">
+    <a href="index.html" class="flex items-center gap-x-2.5 sm:gap-x-3">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 border border-white/25 flex items-center justify-center text-white text-lg">
+            <i class="fa-solid fa-house-chimney"></i>
+        </div>
+        <div class="leading-tight">
+            <span class="heading-font text-2xl sm:text-3xl font-semibold tracking-wide text-white">Dreamproject</span>
+            <span class="block text-[9px] sm:text-[10px] text-white/60 -mt-1 tracking-[2px] uppercase">Designs & Developers</span>
+        </div>
+    </a>
+</div>
+
+<button
+    onclick="handlePhoneCTA('+16047509037')"
+    class="lg:hidden ml-auto flex items-center gap-x-2 border border-white/25 text-white px-3 py-2 hover:bg-white/10 transition text-sm font-medium whitespace-nowrap">
+    <i class="fa-solid fa-phone text-xs"></i>
+    <span>604 750 9037</span>
+</button>
+
+<div class="hidden lg:flex items-center gap-x-7 xl:gap-x-9 text-sm font-medium tracking-wide">
+    <a href="index.html" class="nav-link text-white/80 hover:text-white">Home</a>
+    <a href="about.html" class="nav-link text-white/80 hover:text-white">About Us</a>
+    <a href="services.html" class="nav-link text-white/80 hover:text-white">Services</a>
+    <a href="projects.html" class="nav-link text-white/80 hover:text-white">Projects</a>
+    <a href="contact.html" class="nav-link text-white/80 hover:text-white">Contact</a>
+</div>
+
+<div class="hidden lg:flex items-center gap-x-3 xl:gap-x-4">
+    <button
+        onclick="handlePhoneCTA('+16047509037')"
+        class="hidden lg:flex items-center gap-x-2 border border-white/25 text-white px-4 xl:px-5 py-2.5 hover:bg-white/10 transition text-sm font-medium whitespace-nowrap">
+        <i class="fa-solid fa-phone text-xs"></i>
+        <span class="truncate max-w-[140px] xl:max-w-none">604 750 9037</span>
+    </button>
+    <a href="contact.html" class="btn-primary px-5 xl:px-6 py-2.5 text-sm whitespace-nowrap">
+        Get Free Consultation
+    </a>
+</div>
+
+<button id="hamburger" class="hamburger lg:hidden flex flex-col justify-center items-center gap-y-1.5 w-11 h-11 shrink-0">
+    <span class="block w-6 h-px bg-white"></span>
+    <span class="block w-6 h-px bg-white"></span>
+    <span class="block w-6 h-px bg-white"></span>
+</button>
+</div>
+</div>
+
+<div id="mobile-menu" class="hidden lg:hidden bg-[#0a0a0a] border-t border-white/10 fixed inset-x-0 top-20 shadow-2xl py-6 z-50 max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div class="max-w-[85rem] mx-auto px-6">
+        <div class="flex flex-col text-base font-medium tracking-wide">
+            <a href="index.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Home</a>
+            <a href="about.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">About Us</a>
+            <a href="services.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Services</a>
+            <a href="projects.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Projects</a>
+            <a href="contact.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Contact</a>
+        </div>
+        <div class="pt-8">
+            <a href="contact.html" onclick="toggleMobileMenu()" class="w-full btn-primary py-4 text-base text-center block">
+                Get Free Consultation
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="bg-[#050505] border-b border-white/10">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20">
+    <div class="animate-on-scroll max-w-3xl">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="gold-line"></div>
+        <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">Our Work</span>
+      </div>
+      <h1 class="heading-font text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+        Projects That Speak for Themselves.
+      </h1>
+      <p class="mt-6 text-lg text-white/80 leading-relaxed max-w-2xl">
+        From residential transformations to commercial spaces and new construction — explore a selection of projects completed by Dreamproject across Mainland BC and Vancouver Island.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3 text-xs tracking-wider uppercase text-white/60">
+        <span class="border border-white/20 px-3 py-1.5">Full Renovations</span>
+        <span class="border border-white/20 px-3 py-1.5">Kitchens</span>
+        <span class="border border-white/20 px-3 py-1.5">Bathrooms</span>
+        <span class="border border-white/20 px-3 py-1.5">Commercial</span>
+        <span class="border border-white/20 px-3 py-1.5">New Construction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS GALLERY — 30 images -->
+<section class="bg-[#0a0a0a]">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+
+    <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5">
+
+      <div onclick="openLightbox(event, 0)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/1.jpg" alt="Project 1">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 1)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/2.jpg" alt="Project 2">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 2)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/3.jpg" alt="Project 3">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 3)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/4.jpg" alt="Project 4">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 4)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/5.jpg" alt="Project 5">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 5)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/6.jpg" alt="Project 6">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 6)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/7.jpg" alt="Project 7">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 7)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/8.jpg" alt="Project 8">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 8)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/9.jpg" alt="Project 9">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 9)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/10.jpg" alt="Project 10">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 10)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/11.jpg" alt="Project 11">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 11)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/12.jpg" alt="Project 12">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 12)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/13.jpg" alt="Project 13">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 13)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/14.jpg" alt="Project 14">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 14)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/15.PNG" alt="Project 15">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 15)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/16.jpg" alt="Project 16">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 16)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/17.jpg" alt="Project 17">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 17)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/18.jpg" alt="Project 18">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 18)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/19.jpg" alt="Project 19">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 19)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/20.jpg" alt="Project 20">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 20)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/21.jpg" alt="Project 21">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 21)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/22.jpg" alt="Project 22">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 22)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/23.jpg" alt="Project 23">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 23)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/24.jpg" alt="Project 24">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 24)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/25.jpg" alt="Project 25">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 25)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/26.jpg" alt="Project 26">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 26)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/27.jpg" alt="Project 27">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 27)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/28.jpg" alt="Project 28">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 28)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/29.jpg" alt="Project 29">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+      <div onclick="openLightbox(event, 29)" class="cursor-pointer group relative overflow-hidden aspect-square">
+        <img class="w-full h-full object-cover transition duration-700 group-hover:scale-105" src="images/30.jpg" alt="Project 30">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition duration-500"></div>
+        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <div class="px-4 py-2 bg-white text-[#050505] text-xs font-semibold tracking-wider">VIEW</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[#050505]">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div class="animate-on-scroll relative overflow-hidden border border-white/12 bg-[#0c0c0c] px-6 py-12 sm:px-10 sm:py-16 lg:px-16 text-center">
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
+          Ready to Start Your Project?
+        </h2>
+        <p class="mt-5 text-white/80 text-base sm:text-lg">
+          Book a free consultation. We'll help you plan a renovation or new build that fits your space, timeline, and budget.
+        </p>
+        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="contact.html" class="w-full sm:w-auto px-8 py-3.5 btn-primary text-sm tracking-wide text-center">
+            Get Free Consultation
+          </a>
+          <button onclick="handlePhoneCTA('+16047509037')"
+                  class="w-full sm:w-auto px-8 py-3.5 btn-outline text-sm tracking-wide flex items-center justify-center gap-2">
+            <i class="fa-solid fa-phone text-xs"></i>
+            604 750 9037
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox"
+     onclick="closeLightbox()"
+     class="fixed inset-0 bg-black/95 hidden items-center justify-center z-50">
+  <span onclick="closeLightbox(); event.stopPropagation();"
+        class="absolute top-6 right-8 text-white/80 hover:text-white text-4xl cursor-pointer transition">&times;</span>
+  <button onclick="prevImage(); event.stopPropagation();"
+          class="absolute left-6 text-white/70 hover:text-white text-3xl transition">&#10094;</button>
+  <img id="lightbox-img" onclick="event.stopPropagation()" class="max-w-[90%] max-h-[85%] transition duration-300">
+  <button onclick="nextImage(); event.stopPropagation();"
+          class="absolute right-6 text-white/70 hover:text-white text-3xl transition">&#10095;</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-[#050505] border-t border-white/10 py-14 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10">
+            <div class="lg:col-span-5">
+                <div class="flex items-center gap-x-3 text-white mb-6">
+                    <div class="w-9 h-9 border border-white/25 flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <div>
+                        <span class="heading-font text-2xl font-semibold tracking-wide">Dreamproject</span>
+                        <span class="block text-[10px] text-white/60 tracking-[2px] -mt-0.5 uppercase">Designs & Developers</span>
+                    </div>
+                </div>
+                <p class="text-white/80 max-w-md leading-relaxed text-sm">
+                    Design your dreams into reality with us. Full renovations and new construction across Mainland & Vancouver Island since 2023.
+                </p>
+                <div class="mt-8 flex gap-3">
+                    <a href="#" class="w-9 h-9 border border-white/20 hover:border-white/50 transition flex items-center justify-center text-sm text-white/80 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/20 hover:border-white/50 transition flex items-center justify-center text-sm text-white/80 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/20 hover:border-white/50 transition flex items-center justify-center text-sm text-white/80 hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="lg:col-span-2">
+                <h4 class="text-white font-semibold mb-5 text-sm tracking-wide">Quick Links</h4>
+                <ul class="space-y-3 text-sm text-white/80">
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+                    <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div class="lg:col-span-2">
+                <h4 class="text-white font-semibold mb-5 text-sm tracking-wide">Services</h4>
+                <ul class="space-y-3 text-sm text-white/80">
+                    <li>Full Home Renovations</li>
+                    <li>Kitchen & Bathroom</li>
+                    <li>Flooring, Tile & Paint</li>
+                    <li>Electrical & Plumbing</li>
+                    <li>Commercial Fit-Outs</li>
+                    <li>New Construction</li>
+                </ul>
+            </div>
+            <div class="lg:col-span-3">
+                <h4 class="text-white font-semibold mb-5 text-sm tracking-wide">Get In Touch</h4>
+                <div class="space-y-6">
+                    <div class="flex gap-x-4 group">
+                        <i class="fa-solid fa-phone text-white/70 mt-1 text-sm"></i>
+                        <div>
+                            <button onclick="handlePhoneCTA('+16047509037')" class="font-medium hover:text-[#c9a227] transition text-left text-sm text-white tracking-wide">604 750 9037</button>
+                            <p class="text-white/70 mt-1 text-xs">Mon – Fri | 9 AM – 6 PM</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-x-4">
+                        <i class="fa-solid fa-envelope text-white/70 mt-1 text-sm"></i>
+                        <div class="text-sm text-white/80">
+                            <a href="mailto:MohitDreamproject28@gmail.com" class="hover:text-white transition">MohitDreamproject28@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-x-4">
+                        <i class="fa-solid fa-location-dot text-white/70 mt-1 text-sm"></i>
+                        <div class="text-sm text-white/80">10217<br>Vancouver, BC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 mt-12 pt-6 text-center text-xs text-white/60 tracking-wide">
+            <p>© 2026 Dreamproject Designs & Developers Ltd • Design your dreams into reality. All Rights Reserved.</p>
+            <p class="mt-2 text-white/50">
+                Designed by <a href="https://stellarwebstudio.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Stellar Web Studio</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMobileMenu() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('hidden');
+}
+hamburger.addEventListener('click', toggleMobileMenu);
+
+function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+async function handlePhoneCTA(phoneNumber) { 
+    if (isMobileDevice()) {
+        window.location.href = `tel:${phoneNumber}`;
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(phoneNumber);
+        showToast();
+    } catch (err) {
+        console.error('Clipboard copy failed:', err);
+    }
+}
+
+const toast = document.getElementById('copy-toast');
+function showToast() {
+    toast.classList.remove('translate-x-[120%]', 'opacity-0');
+    setTimeout(() => { hideToast(); }, 2500);
+}
+function hideToast() {
+    toast.classList.add('translate-x-[120%]', 'opacity-0');
+}
+
+let images = [];
+let currentIndex = 0;
+
+window.onload = function () {
+    window.scrollTo(0, 0);
+    const imgs = document.querySelectorAll("#galleryGrid img");
+    images = Array.from(imgs).map(img => img.src);
+};
+
+function openLightbox(event, index) {
+    event.preventDefault();
+    currentIndex = index;
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = images[currentIndex];
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+}
+
+document.getElementById("lightbox").addEventListener("click", function(e) {
+    if (e.target.id === "lightbox") closeLightbox();
+});
+
+document.addEventListener("keydown", function(e) {
+    if (document.getElementById("lightbox").classList.contains("hidden")) return;
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+    if (e.key === "Escape") closeLightbox();
+});
+
+let startX = 0;
+document.getElementById("lightbox").addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+});
+document.getElementById("lightbox").addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextImage();
+    if (endX - startX > 50) prevImage();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+        el.style.setProperty('--i', index % 6);
+        observer.observe(el);
+    });
+
+    const currentPage = window.location.pathname.split("/").pop() || "projects.html";
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPage) link.classList.add('active');
+    });
+});
+</script>
+</body>
+</html>

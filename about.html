@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Dreamproject Designs & Developers Ltd | Vancouver BC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --black: #050505;
+            --zinc: #0a0a0a;
+            --gold: #c9a227;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #050505;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #e5e5e5;
+            color: #050505;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.45);
+            color: #ffffff;
+            background: transparent;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.75);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: #c9a227;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .hamburger span {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link.active,
+        .nav-link[href="about.html"].active {
+            color: #c9a227 !important;
+            font-weight: 500;
+        }
+
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -3px;
+            left: 0;
+            background-color: #c9a227;
+        }
+
+        .gold-line {
+            width: 48px;
+            height: 1px;
+            background: linear-gradient(90deg, #c9a227, transparent);
+        }
+
+        .premium-card {
+            background: #0c0c0c;
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+        .premium-card:hover {
+            border-color: rgba(201,162,39,0.45);
+            background: #111111;
+        }
+    </style>
+
+<div id="copy-toast"
+     class="fixed bottom-5 right-5 translate-y-[0%] opacity-0 z-[9999] transition-all duration-300 max-w-xs w-[90%] sm:w-full bg-zinc-900 border border-white/15 shadow-2xl">
+    <div class="flex items-center p-4 gap-x-3">
+        <div class="w-9 h-9 bg-white/10 flex items-center justify-center text-[#c9a227] shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <p class="text-sm font-medium text-white flex-1">Phone number copied to clipboard!</p>
+        <button onclick="hideToast()" class="text-white/60 hover:text-white transition shrink-0">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>
+
+</head>
+<body class="tail-container bg-[#050505] text-white antialiased">
+
+<!-- NAVBAR -->
+<nav class="bg-[#050505]/95 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+<div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+            
+<div class="flex items-center gap-x-2 sm:gap-x-3 shrink-0">
+    <a href="index.html" class="flex items-center gap-x-2.5 sm:gap-x-3">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 border border-white/25 flex items-center justify-center text-white text-lg">
+            <i class="fa-solid fa-house-chimney"></i>
+        </div>
+        <div class="leading-tight">
+            <span class="heading-font text-2xl sm:text-3xl font-semibold tracking-wide text-white">Dreamproject</span>
+            <span class="block text-[9px] sm:text-[10px] text-white/60 -mt-1 tracking-[2px] uppercase">Designs & Developers</span>
+        </div>
+    </a>
+</div>
+
+<button
+    onclick="handlePhoneCTA('+16047509037')"
+    class="lg:hidden ml-auto flex items-center gap-x-2 border border-white/25 text-white px-3 py-2 hover:bg-white/10 transition text-sm font-medium whitespace-nowrap">
+    <i class="fa-solid fa-phone text-xs"></i>
+    <span>604 750 9037</span>
+</button>
+
+<div class="hidden lg:flex items-center gap-x-7 xl:gap-x-9 text-sm font-medium tracking-wide">
+    <a href="index.html" class="nav-link text-white/80 hover:text-white">Home</a>
+    <a href="about.html" class="nav-link text-white/80 hover:text-white">About Us</a>
+    <a href="services.html" class="nav-link text-white/80 hover:text-white">Services</a>
+    <a href="projects.html" class="nav-link text-white/80 hover:text-white">Projects</a>
+    <a href="contact.html" class="nav-link text-white/80 hover:text-white">Contact</a>
+</div>
+
+<div class="hidden lg:flex items-center gap-x-3 xl:gap-x-4">
+    <button
+        onclick="handlePhoneCTA('+16047509037')"
+        class="hidden lg:flex items-center gap-x-2 border border-white/25 text-white px-4 xl:px-5 py-2.5 hover:bg-white/10 transition text-sm font-medium whitespace-nowrap">
+        <i class="fa-solid fa-phone text-xs"></i>
+        <span class="truncate max-w-[140px] xl:max-w-none">604 750 9037</span>
+    </button>
+    <a href="contact.html" class="btn-primary px-5 xl:px-6 py-2.5 text-sm whitespace-nowrap">
+        Get Free Consultation
+    </a>
+</div>
+
+<button id="hamburger" class="hamburger lg:hidden flex flex-col justify-center items-center gap-y-1.5 w-11 h-11 shrink-0">
+    <span class="block w-6 h-px bg-white"></span>
+    <span class="block w-6 h-px bg-white"></span>
+    <span class="block w-6 h-px bg-white"></span>
+</button>
+</div>
+</div>
+
+<div id="mobile-menu" class="hidden lg:hidden bg-[#0a0a0a] border-t border-white/10 fixed inset-x-0 top-20 shadow-2xl py-6 z-50 max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div class="max-w-[85rem] mx-auto px-6">
+        <div class="flex flex-col text-base font-medium tracking-wide">
+            <a href="index.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Home</a>
+            <a href="about.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">About Us</a>
+            <a href="services.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Services</a>
+            <a href="projects.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Projects</a>
+            <a href="contact.html" onclick="toggleMobileMenu()" class="py-3.5 border-b border-white/10 text-white hover:text-[#c9a227]">Contact</a>
+        </div>
+        <div class="pt-8">
+            <a href="contact.html" onclick="toggleMobileMenu()" class="w-full btn-primary py-4 text-base text-center block">
+                Get Free Consultation
+            </a>
+        </div>
+    </div>
+</div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="bg-[#050505] border-b border-white/10">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 lg:pt-24 lg:pb-20">
+    <div class="animate-on-scroll max-w-3xl">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="gold-line"></div>
+        <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">About Dreamproject</span>
+      </div>
+      <h1 class="heading-font text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+        Building Better Spaces<br>Since 2023.
+      </h1>
+      <p class="mt-6 text-lg text-white/80 leading-relaxed max-w-2xl">
+        Full-service renovations and new construction across Mainland British Columbia and Vancouver Island — from framing to finish.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="bg-[#050505]">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-24 lg:pb-28">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      
+      <div class="animate-on-scroll">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="gold-line"></div>
+          <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">Our Story</span>
+        </div>
+
+        <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
+          Quality Workmanship.<br>Complete Project Management.
+        </h2>
+
+        <p class="mt-6 text-white/85 leading-relaxed">
+          Dreamproject Designs & Developers Ltd provides full-service renovations and new construction across Mainland BC and Vancouver Island.
+        </p>
+
+        <p class="mt-4 text-white/85 leading-relaxed">
+          From complete home renovations and commercial fit-outs to new construction, we bring planning, project management, and construction together to deliver quality spaces from framing to finish.
+        </p>
+
+        <p class="mt-4 text-white/90 font-medium tracking-wide text-sm">
+          Residential. Commercial. Renovations. New Construction.
+        </p>
+
+        <ul class="mt-10 space-y-4">
+          <li class="flex items-start gap-4 text-white/90">
+            <span class="text-[#c9a227] mt-0.5 text-sm">→</span>
+            <span class="text-sm tracking-wide"><strong class="text-white font-medium">Framing to Finish</strong> — Complete project management from start to completion</span>
+          </li>
+          <li class="flex items-start gap-4 text-white/90">
+            <span class="text-[#c9a227] mt-0.5 text-sm">→</span>
+            <span class="text-sm tracking-wide"><strong class="text-white font-medium">Quality-Focused</strong> — Workmanship and materials selected for lasting results</span>
+          </li>
+          <li class="flex items-start gap-4 text-white/90">
+            <span class="text-[#c9a227] mt-0.5 text-sm">→</span>
+            <span class="text-sm tracking-wide"><strong class="text-white font-medium">Mainland & Island</strong> — Serving clients across British Columbia</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="relative">
+          <img 
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600"
+            alt="Professional renovation work"
+            class="w-full h-[400px] sm:h-[500px] lg:h-[560px] object-cover"
+          />
+          <div class="absolute -z-10 inset-0 bg-white/5 md:translate-x-5 md:translate-y-5"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="bg-[#0a0a0a] border-y border-white/10">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+    <div class="animate-on-scroll">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 text-center">
+        <div>
+          <p class="heading-font text-4xl sm:text-5xl font-semibold text-white">80+</p>
+          <h4 class="mt-2 text-xs uppercase tracking-[2px] text-white/70 font-medium">Projects Completed</h4>
+        </div>
+        <div>
+          <p class="heading-font text-4xl sm:text-5xl font-semibold text-white">70+</p>
+          <h4 class="mt-2 text-xs uppercase tracking-[2px] text-white/70 font-medium">Happy Clients</h4>
+        </div>
+        <div>
+          <p class="heading-font text-4xl sm:text-5xl font-semibold text-white">Since 2023</p>
+          <h4 class="mt-2 text-xs uppercase tracking-[2px] text-white/70 font-medium">Serving BC</h4>
+        </div>
+        <div>
+          <p class="heading-font text-4xl sm:text-5xl font-semibold text-white">Mainland</p>
+          <h4 class="mt-2 text-xs uppercase tracking-[2px] text-white/70 font-medium">& Island Coverage</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="bg-[#050505]">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 lg:pt-28 lg:pb-28">
+    <div class="animate-on-scroll max-w-2xl mb-14">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="gold-line"></div>
+        <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">Our Process</span>
+      </div>
+      <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
+        From First Conversation to Final Handover.
+      </h2>
+      <p class="mt-4 text-white/80">
+        A straightforward process designed to keep your project organized, transparent, and moving forward.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="animate-on-scroll premium-card p-6">
+        <div class="w-11 h-11 border border-white/25 flex items-center justify-center font-semibold text-sm text-white mb-5">01</div>
+        <h4 class="text-lg font-semibold text-white tracking-wide">Consultation & Site Assessment</h4>
+        <p class="text-white/80 mt-2 text-sm leading-relaxed">We understand your goals, assess the property, and establish the scope of work.</p>
+      </div>
+      <div class="animate-on-scroll premium-card p-6">
+        <div class="w-11 h-11 border border-white/25 flex items-center justify-center font-semibold text-sm text-white mb-5">02</div>
+        <h4 class="text-lg font-semibold text-white tracking-wide">Planning & Quotation</h4>
+        <p class="text-white/80 mt-2 text-sm leading-relaxed">Project scope, materials, coordination, and a detailed transparent quotation.</p>
+      </div>
+      <div class="animate-on-scroll premium-card p-6">
+        <div class="w-11 h-11 border border-white/25 flex items-center justify-center font-semibold text-sm text-white mb-5">03</div>
+        <h4 class="text-lg font-semibold text-white tracking-wide">Construction</h4>
+        <p class="text-white/80 mt-2 text-sm leading-relaxed">We coordinate trades, materials, and finishing work throughout the build.</p>
+      </div>
+      <div class="animate-on-scroll premium-card p-6">
+        <div class="w-11 h-11 border border-white/25 flex items-center justify-center font-semibold text-sm text-white mb-5">04</div>
+        <h4 class="text-lg font-semibold text-white tracking-wide">Final Walkthrough</h4>
+        <p class="text-white/80 mt-2 text-sm leading-relaxed">Finishing details, inspection, and walkthrough before handover.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center animate-on-scroll">
+      <a href="contact.html" class="inline-flex items-center gap-2.5 btn-primary px-7 py-3.5 text-sm tracking-wide">
+        Start Your Project
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="bg-[#0a0a0a] border-y border-white/10">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <div class="animate-on-scroll">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="flex items-center justify-center gap-3 mb-5">
+          <div class="w-8 h-px bg-[#c9a227]/70"></div>
+          <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">Our Team</span>
+          <div class="w-8 h-px bg-[#c9a227]/70"></div>
+        </div>
+        <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-semibold text-white">
+          The People Behind Dreamproject.
+        </h2>
+        <p class="mt-4 text-white/80">
+          A construction project is only as good as the people delivering it.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="group text-center">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800"
+              class="w-full h-72 object-cover transition duration-700 group-hover:scale-105" alt="Mohit">
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-white tracking-wide">Mohit</h3>
+          <p class="text-white/70 text-sm mt-1 tracking-wide">Founder & Principal</p>
+        </div>
+        <div class="group text-center">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800"
+              class="w-full h-72 object-cover transition duration-700 group-hover:scale-105" alt="Project Lead">
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-white tracking-wide">Project Lead</h3>
+          <p class="text-white/70 text-sm mt-1 tracking-wide">Site & Operations</p>
+        </div>
+        <div class="group text-center">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800"
+              class="w-full h-72 object-cover transition duration-700 group-hover:scale-105" alt="Design Lead">
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-white tracking-wide">Design Lead</h3>
+          <p class="text-white/70 text-sm mt-1 tracking-wide">Interiors & Planning</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 lg:py-28 bg-[#050505]">
+  <div class="animate-on-scroll"> 
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-center items-center gap-y-10 lg:gap-y-0 flex-wrap lg:flex-nowrap lg:justify-between lg:gap-x-12 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
+            
+      <div class="w-full lg:w-2/5">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="gold-line"></div>
+          <span class="text-[#c9a227] text-xs tracking-[3px] uppercase font-medium">Testimonials</span>
+        </div>
+        <h2 class="heading-font text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-8">
+          Trusted by Homeowners & Businesses
+        </h2>
+        <div class="flex items-center justify-center lg:justify-start gap-4">
+          <button class="prev-btn group flex justify-center items-center border border-white/30 !w-11 !h-11 transition-all duration-300 hover:bg-white hover:border-white">
+            <svg class="h-4 w-4 text-white group-hover:text-[#050505]" viewBox="0 0 24 24" fill="none">
+              <path d="M20.9999 12L4.99992 12M9.99992 6L4.70703 11.2929C4.3737 11.6262 4.20703 11.7929 4.20703 12C4.20703 12.2071 4.3737 12.3738 4.70703 12.7071L9.99992 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="next-btn group flex justify-center items-center border border-white/30 !w-11 !h-11 transition-all duration-300 hover:bg-white hover:border-white">
+            <svg class="h-4 w-4 text-white group-hover:text-[#050505]" viewBox="0 0 24 24" fill="none">
+              <path d="M3 12L19 12M14 18L19.2929 12.7071C19.6262 12.3738 19.7929 12.2071 19.7929 12C19.7929 11.7929 19.6262 11.6262 19.2929 11.2929L14 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-3/5">
+        <div class="swiper myTestimonialSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide premium-card p-6 lg:p-7">
+              <div class="flex items-center gap-4 mb-5">
+                <img class="object-cover w-11 h-11" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                <div>
+                  <h5 class="text-white font-semibold tracking-wide text-sm">James R.</h5>
+                  <span class="text-xs text-white/70">Homeowner, Vancouver</span>
+                </div>
+              </div>
+              <div class="flex items-center mb-4 gap-0.5 text-[#c9a227] text-xs tracking-widest">★★★★★</div>
+              <p class="text-sm text-white/85 leading-relaxed min-h-[5.5rem]">
+                Dreamproject handled our full home renovation from framing to finish. Clear communication, solid workmanship, and they stayed on schedule.
+              </p>
+            </div>
+            <div class="swiper-slide premium-card p-6 lg:p-7">
+              <div class="flex items-center gap-4 mb-5">
+                <img class="object-cover w-11 h-11" src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                <div>
+                  <h5 class="text-white font-semibold tracking-wide text-sm">Sarah K.</h5>
+                  <span class="text-xs text-white/70">Café Owner, Burnaby</span>
+                </div>
+              </div>
+              <div class="flex items-center mb-4 gap-0.5 text-[#c9a227] text-xs tracking-widest">★★★★★</div>
+              <p class="text-sm text-white/85 leading-relaxed min-h-[5.5rem]">
+                They fit out our café on time and on budget. Quality finishes and attention to detail made a huge difference for our opening.
+              </p>
+            </div>
+            <div class="swiper-slide premium-card p-6 lg:p-7">
+              <div class="flex items-center gap-4 mb-5">
+                <img class="object-cover w-11 h-11" src="https://randomuser.me/api/portraits/men/12.jpg" alt="">
+                <div>
+                  <h5 class="text-white font-semibold tracking-wide text-sm">David L.</h5>
+                  <span class="text-xs text-white/70">Homeowner, Victoria</span>
+                </div>
+              </div>
+              <div class="flex items-center mb-4 gap-0.5 text-[#c9a227] text-xs tracking-widest">★★★★★</div>
+              <p class="text-sm text-white/85 leading-relaxed min-h-[5.5rem]">
+                Kitchen and bathroom renovation exceeded expectations. Waterproofing and tiling were done right — highly recommend for Island projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[#0a0a0a] border-t border-white/10">
+  <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="animate-on-scroll text-center max-w-2xl mx-auto">
+      <h2 class="heading-font text-3xl sm:text-4xl font-semibold text-white">Have a Project in Mind?</h2>
+      <p class="mt-4 text-white/80">Tell us what you're planning and let's discuss how we can bring it to life.</p>
+      <div class="mt-8">
+        <a href="contact.html" class="inline-flex items-center gap-2.5 btn-primary px-8 py-3.5 text-sm tracking-wide">
+          Get Free Consultation
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+      <p class="mt-6 text-white/60 text-sm tracking-wide">Mainland BC & Vancouver Island · Residential & Commercial</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#050505] border-t border-white/10 py-14 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10">
+            <div class="lg:col-span-5">
+                <div class="flex items-center gap-x-3 text-white mb-6">
+                    <div class="w-9 h-9 border border-white/25 flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <div>
+                        <span class="heading-font text-2xl font-semibold tracking-wide">Dreamproject</span>
+                        <span class="block text-[10px] text-white/60 tracking-[2px] -mt-0.5 uppercase">Designs & Developers</span>
+                    </div>
+                </div>
+                <p class="text-white/80 max-w-md leading-relaxed text-sm">
+                    Design your dreams into reality with us. Full renovations and new construction across Mainland & Vancouver Island since 2023.
+                </p>
+                <div class="mt-8 flex gap-3">
+                    <a href="#" class="w-9 h-9 border border-white/20 hover:border-white/50 transition flex items-center justify-center text-sm text-white/80 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/20 hover:border-white/50 transition flex items-center justify-center text-sm text-white/80 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-9 h-9 border border-white/20 hover:border-white/50 transition flex items-center justify-center text-sm text-white/80 hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="lg:col-span-2">
+                <h4 class="text-white font-semibold mb-5 text-sm tracking-wide">Quick Links</h4>
+                <ul class="space-y-3 text-sm text-white/80">
+                    <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+                    <li><a href="projects.html" class="hover:text-white transition">Projects</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div class="lg:col-span-2">
+                <h4 class="text-white font-semibold mb-5 text-sm tracking-wide">Services</h4>
+                <ul class="space-y-3 text-sm text-white/80">
+                    <li>Full Home Renovations</li>
+                    <li>Kitchen & Bathroom</li>
+                    <li>Flooring, Tile & Paint</li>
+                    <li>Electrical & Plumbing</li>
+                    <li>Commercial Fit-Outs</li>
+                    <li>New Construction</li>
+                </ul>
+            </div>
+            <div class="lg:col-span-3">
+                <h4 class="text-white font-semibold mb-5 text-sm tracking-wide">Get In Touch</h4>
+                <div class="space-y-6">
+                    <div class="flex gap-x-4 group">
+                        <i class="fa-solid fa-phone text-white/70 mt-1 text-sm"></i>
+                        <div>
+                            <button onclick="handlePhoneCTA('+16047509037')" class="font-medium hover:text-[#c9a227] transition text-left text-sm text-white tracking-wide">604 750 9037</button>
+                            <p class="text-white/70 mt-1 text-xs">Mon – Fri | 9 AM – 6 PM</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-x-4">
+                        <i class="fa-solid fa-envelope text-white/70 mt-1 text-sm"></i>
+                        <div class="text-sm text-white/80">
+                            <a href="mailto:MohitDreamproject28@gmail.com" class="hover:text-white transition">MohitDreamproject28@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex gap-x-4">
+                        <i class="fa-solid fa-location-dot text-white/70 mt-1 text-sm"></i>
+                        <div class="text-sm text-white/80">10217<br>Vancouver, BC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-white/10 mt-12 pt-6 text-center text-xs text-white/60 tracking-wide">
+            <p>© 2026 Dreamproject Designs & Developers Ltd • Design your dreams into reality. All Rights Reserved.</p>
+            <p class="mt-2 text-white/50">
+                Designed by <a href="https://stellarwebstudio.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Stellar Web Studio</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMobileMenu() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('hidden');
+}
+hamburger.addEventListener('click', toggleMobileMenu);
+
+function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+async function handlePhoneCTA(phoneNumber) { 
+    if (isMobileDevice()) {
+        window.location.href = `tel:${phoneNumber}`;
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(phoneNumber);
+        showToast();
+    } catch (err) {
+        console.error('Clipboard copy failed:', err);
+    }
+}
+
+const toast = document.getElementById('copy-toast');
+function showToast() {
+    toast.classList.remove('translate-x-[120%]', 'opacity-0');
+    setTimeout(() => { hideToast(); }, 2500);
+}
+function hideToast() {
+    toast.classList.add('translate-x-[120%]', 'opacity-0');
+}
+
+var testimonialSwiper = new Swiper(".myTestimonialSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+        nextEl: ".next-btn",
+        prevEl: ".prev-btn",
+    },
+    breakpoints: {
+        768: { slidesPerView: 2, spaceBetween: 24 }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+        el.style.setProperty('--i', index % 6);
+        observer.observe(el);
+    });
+
+    const currentPage = window.location.pathname.split("/").pop() || "about.html";
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === currentPage) link.classList.add('active');
+    });
+});
+</script>
+</body>
+</html>
